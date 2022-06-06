@@ -1,0 +1,8 @@
+(undo-tree-save-format-version . 1)
+"908bf2402304892807044187adcfbff0ee08e4dd"
+[nil current nil nil (25246 25022 681272 900000) 0 nil]
+([nil nil ((#("j" 0 1 (fontified t face font-lock-string-face)) . -26) (undo-tree-id0 . -1) (19 . 27) (#("term-app" 0 8 (fontified t face font-lock-string-face)) . 19) (t 25245 15963 801664 700000)) ((19 . 27) (#("todo.rsj" 0 4 (fontified nil face font-lock-string-face) 4 5 (fontified nil face font-lock-string-face) 5 7 (fontified nil face font-lock-string-face) 7 8 (fontified nil face font-lock-string-face)) . 19) (undo-tree-id10 . 3) (undo-tree-id11 . -4) (undo-tree-id12 . -4) (undo-tree-id13 . -4) (26 . 27)) (25246 25022 183929 100000) 0 nil])
+([nil nil ((#("." 0 1 (fontified t face font-lock-string-face)) . 23) (t 25246 24961 982997 200000)) ((23 . 24)) (25246 25022 72191 100000) 0 nil])
+([nil nil ((#("j" 0 1 (fontified t face font-lock-string-face)) . -24) (undo-tree-id1 . -1) (23 . 25) (t 25246 24977 942997 200000)) ((#("_j" 0 1 (fontified nil face font-lock-string-face) 1 2 (fontified nil face font-lock-string-face)) . 23) (24 . 25)) (25246 25021 956702 0) 0 nil])
+([nil nil ((#("j" 0 1 (fontified t face font-lock-string-face)) . -27) (undo-tree-id2 . -1) (19 . 28) (#("todo_rs" 0 7 (fontified t face font-lock-string-face)) . 19) (undo-tree-id3 . 2) (undo-tree-id4 . -4) (t 25246 24985 322997 200000)) ((19 . 26) (#("term-appj" 0 8 (fontified nil face font-lock-string-face) 8 9 (fontified nil face font-lock-string-face)) . 19) (undo-tree-id5 . -4) (undo-tree-id6 . -4) (undo-tree-id7 . -4) (undo-tree-id8 . -4) (undo-tree-id9 . -4) (27 . 28) (t 25246 24993 22997 200000)) (25246 24993 18048 400000) 0 nil])
+nil
