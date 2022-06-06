@@ -1,0 +1,15 @@
+(undo-tree-save-format-version . 1)
+"30065c1d8e7342412c0f28b8751b5e1447633143"
+[nil nil nil nil (25245 24447 280472 600000) 0 nil]
+([nil nil ((nil rear-nonsticky nil 1 . 2) (#("
+" 0 1 (fontified nil)) . -678) (1 . 679) (t . -1)) nil (25245 24447 280470 200000) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t rear-nonsticky t)) . 1) (undo-tree-id0 . -1)) nil (25245 24447 280464 300000) 0 nil])
+([nil nil ((#("j" 0 1 (fontified t)) . -1) (undo-tree-id1 . -1) (1 . 2) (1 . 2) (t 25245 24447 283365 200000)) nil (25245 24461 192245 100000) 0 nil])
+([nil nil ((1 . 16) (t 25245 24461 203365 200000)) nil (25245 24490 135220 300000) 0 nil])
+([nil nil ((#("mod todoItems;
+" 0 3 (fontified t face font-lock-keyword-face) 3 4 (fontified t) 4 13 (fontified t face font-lock-constant-face) 13 14 (fontified t) 14 15 (fontified t)) . 1) (undo-tree-id3 . -15) (undo-tree-id4 . -14) (t 25245 24490 133365 200000)) nil (25245 24532 627269 400000) 0 nil])
+([nil nil ((#("
+" 0 1 (fontified t)) . 1) (undo-tree-id2 . 1)) nil (25245 24532 627246 500000) 0 nil])
+([nil current ((1 . 437) (t 25245 24532 643365 200000)) nil (25245 24548 356361 800000) 0 nil])
+nil
