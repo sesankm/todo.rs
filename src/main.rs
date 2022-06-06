@@ -1,5 +1,6 @@
 use std::fs;
-use std::io::{Write, stdin, stdout};
+use std::fs::File;
+use std::io::{stdin, stdout, Write};
 use std::str::Split;
 
 use termion::color;
@@ -114,6 +115,13 @@ impl TaskList {
 			self.selected = (self.todos.len() - 1) as i32;
 		}
 	}
+
+	fn dump(&self){
+		let mut file = File::create(".tasks").unwrap();
+		for task in &self.todos {
+			let _ = file.write_fmt(format_args!("{},{}\n",task.text.replace("\n", ""), task.completed as i32));
+		}
+	}
 }
 
 fn get_input() -> String {
@@ -153,4 +161,5 @@ fn main() {
 	print!("{}", termion::cursor::Hide);
 	print!("{}", termion::cursor::Goto(1, 1));
 	println!("{}", termion::cursor::Show);
+	todo_list.dump();
 }
