@@ -16,8 +16,15 @@ struct Task {
 
 fn read_file() -> TaskList {
 	let mut tl: TaskList = TaskList::new();
+	let contents = fs::read_to_string("/home/sesank/.tasks");
 
-	let contents = fs::read_to_string(".tasks").expect("Error reading file.");
+	match contents {
+		Err(_) => return tl,
+		_ => {}
+	}
+
+	let contents = contents.unwrap();
+
 	let tasks_raw: Split<&str> = contents.split("\n");
 
 	for task in tasks_raw {
@@ -117,7 +124,7 @@ impl TaskList {
 	}
 
 	fn dump(&self){
-		let mut file = File::create(".tasks").unwrap();
+		let mut file = File::create("/home/sesank/.tasks").unwrap();
 		for task in &self.todos {
 			let _ = file.write_fmt(format_args!("{},{}\n",task.text.replace("\n", ""), task.completed as i32));
 		}
