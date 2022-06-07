@@ -1,0 +1,5 @@
+(undo-tree-save-format-version . 1)
+"7275db5567587cd1ddf25b949d1f6691529a621a"
+[nil nil nil nil (25247 20109 612888 200000) 0 nil]
+([nil current ((#("j" 0 1 (fontified t face font-lock-string-face)) . -22) (undo-tree-id0 . -1) (19 . 23) (#("todo" 0 4 (fontified t face font-lock-string-face)) . 19) (t 25247 20044 100664 100000)) nil (25247 20109 612884 0) 0 nil])
+nil
