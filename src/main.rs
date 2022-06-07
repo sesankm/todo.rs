@@ -8,12 +8,6 @@ use termion::event::{Event, Key};
 use termion::input::TermRead;
 use termion::raw::{IntoRawMode, RawTerminal};
 
-#[derive(Debug)]
-struct Task {
-	text: String,
-	completed: bool
-}
-
 fn read_file() -> TaskList {
 	let mut tl: TaskList = TaskList::new();
 	let contents = fs::read_to_string("/home/sesank/.tasks");
@@ -42,6 +36,12 @@ fn read_file() -> TaskList {
 	tl
 }
 
+struct Task {
+	text: String,
+	completed: bool
+}
+
+
 impl Task {
 	fn new(name: String, completed: bool) -> Task {
 		Task {
@@ -63,7 +63,7 @@ impl Task {
 			true => print!("{}{}", color::Fg(color::Black), color::Bg(color::White)),
 			false => print!("{}{}", color::Fg(color::White), color::Bg(color::Black))
 		}
-		println!("{}{}{}", self.text, termion::style::Reset, termion::cursor::Goto(1, row as u16))
+		println!("{}{}{}", self.text, termion::style::Reset, termion::cursor::Goto(1, (row + 1) as u16))
 	}
 
 }
@@ -90,8 +90,10 @@ impl TaskList {
 			println!("No todo items.");
 		}
 		for i in 0..self.todos.len() as i32 {
-			self.todos[i as usize].display(i + 1, i == self.selected);
+			self.todos[i as usize].display(i, i == self.selected);
 		}
+
+		show_controls(self.todos.len() as i32);
 	}
 
 	fn add_task(&mut self, task: Task) {
@@ -139,11 +141,22 @@ fn get_input() -> String {
 	foo
 }
 
+fn show_controls(num_items: i32) {
+	let mut row = 10;
+	if num_items > 8 {
+		row = num_items + 4;
+	}
+	println!("{}{} <q> quit \t <a> add item \t <c> mark/unmark task as complete {}",
+			 termion::cursor::Goto(1, row as u16),
+			 color::Fg(color::Yellow),
+			 termion::style::Reset);
+}
+
 fn main() {
 	let stdin = stdin();
 	let mut stdout = stdout().into_raw_mode().unwrap();
-	let mut todo_list = read_file();
 
+	let mut todo_list = read_file();
 	todo_list.display();
 
 	for c in stdin.events() {
