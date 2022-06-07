@@ -1,5 +1,5 @@
 (undo-tree-save-format-version . 1)
-"c569bef845f2046e2af333efe2eeafbc14a953a7"
+"e5ee6e8c102be7658b2fe966993a50f9553f7e2b"
 [nil nil nil nil (25247 20200 994210 900000) 0 nil]
 ([nil nil (("j" . -122) (undo-tree-id49 . -1) (122 . 123) (119 . 122) (118 . 119) (115 . 118) (" " . 114) (undo-tree-id50 . -1) (undo-tree-id51 . -1) (115 . 116) (101 . 115) (100 . 101) (t 25247 20044 100664 100000)) nil (25247 20200 994208 100000) 0 nil])
 ([nil nil ((213 . 218) (197 . 213) ("d" . -197) (undo-tree-id0 . -1) (undo-tree-id1 . -1) (" " . -198) (undo-tree-id2 . -1) (undo-tree-id3 . -1) ("t" . -199) (undo-tree-id4 . -1) (undo-tree-id5 . -1) ("a" . -200) (undo-tree-id6 . -1) (undo-tree-id7 . -1) ("r" . -201) (undo-tree-id8 . -1) (undo-tree-id9 . -1) ("g" . -202) (undo-tree-id10 . -1) (undo-tree-id11 . -1) ("e" . -203) (undo-tree-id12 . -1) (undo-tree-id13 . -1) ("t" . -204) (undo-tree-id14 . -1) (undo-tree-id15 . -1) 205 (202 . 205) (181 . 202) (" " . -181) (undo-tree-id16 . -1) (undo-tree-id17 . -1) 182 (179 . 182) ("t" . -179) (undo-tree-id18 . -1) ("a" . -180) (undo-tree-id19 . -1) ("r" . -181) (undo-tree-id20 . -1) ("g" . -182) (undo-tree-id21 . -1) 183 (172 . 183) (167 . 172) ("c" . -167) (undo-tree-id22 . -1) ("d" . -168) (undo-tree-id23 . -1) (" " . -169) (undo-tree-id24 . -1) 170 (165 . 170) (164 . 165) ("
@@ -16,6 +16,15 @@
  git clone https://github.com/sesankm/todo.rs && cd todo.rs/ && cargo build && cp target/debug/trs /usr/bin
 ```
 " . 115) (undo-tree-id0 . -4) (undo-tree-id1 . -112) (undo-tree-id2 . -112) (undo-tree-id3 . -116) (undo-tree-id4 . -4) (undo-tree-id5 . -112) 227 (t 25247 20319 470664 100000)) nil (25247 20362 503517 600000) 0 nil])
-([nil current (("
+([nil nil (("
 " . -296) (180 . 297) 116) nil (25247 20362 503492 600000) 0 nil])
+([nil nil (("j" . -405) (undo-tree-id5 . -1) (294 . 406) (292 . 294) (t 25247 20362 510664 100000)) nil (25247 20794 909055 700000) 0 nil])
+([nil nil ((" git clone https://github.com/sesankm/todo.rs && cd todo.rs/ && cargo build && cp target/debug/trs /usr/bin
+" . 185) (undo-tree-id2 . -106) (undo-tree-id3 . 1) (undo-tree-id4 . -106) 291) nil (25247 20794 909052 800000) 0 nil])
+([nil nil (("- installing:
+" . 101) (undo-tree-id0 . -12) (undo-tree-id1 . -12) 113) nil (25247 20794 909047 600000) 0 nil])
+([nil nil ((167 . 181)) nil (25247 20794 909030 200000) 0 nil])
+([nil nil (("
+" . 101) (t 25247 20794 920664 100000)) nil (25247 20796 316923 300000) 0 nil])
+([nil current (("j" . -166) (undo-tree-id6 . -1) (166 . 167) (166 . 167)) nil (25247 20796 316918 0) 0 nil])
 nil
