@@ -1,13 +1,11 @@
 use std::fs;
 use std::fmt::{Display, Formatter, Result};
 use std::fs::File;
-use std::io::{stdin, stdout, Stdout, Write};
+use std::io::{stdin, Write};
 use std::str::Split;
 
 use termion::color;
-use termion::event::{Event, Key};
-use termion::input::TermRead;
-use termion::raw::{IntoRawMode, RawTerminal};
+use termion::raw::RawTerminal;
 
 pub fn read_file() -> TaskList {
 	let mut tl: TaskList = TaskList::new();
