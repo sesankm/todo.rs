@@ -2,7 +2,7 @@ use std::io::{stdin, stdout, Write};
 
 use termion::event::{Event, Key};
 use termion::input::TermRead;
-use termion::raw::{IntoRawMode, RawTerminal};
+use termion::raw::{IntoRawMode};
 
 mod task;
 
@@ -11,7 +11,7 @@ fn main() {
 	let mut stdout = stdout().into_raw_mode().unwrap();
 
 	let mut todo_list = task::read_file();
-	todo_list.display();
+	println!("{}", todo_list);
 
 	for c in stdin.events() {
 		match c.unwrap(){
@@ -24,7 +24,7 @@ fn main() {
 			_ => {}
 		}
 		stdout.flush().unwrap();
-		todo_list.display();
+		println!("{}", todo_list);
 	}
 
 	print!("{}", termion::clear::All);

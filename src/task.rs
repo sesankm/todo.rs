@@ -1,4 +1,5 @@
 use std::fs;
+use std::fmt::{Display, Formatter, Result};
 use std::fs::File;
 use std::io::{stdin, stdout, Stdout, Write};
 use std::str::Split;
@@ -72,10 +73,7 @@ impl Task {
 			true => print!("{}{}", color::Fg(color::Black), color::Bg(color::White)),
 			false => print!("{}{}", color::Fg(color::White), color::Bg(color::Black))
 		}
-		println!("{}{}{}",
-				 self.text,
-				 termion::style::Reset,
-				 termion::cursor::Goto(1, (row + 1) as u16))
+		println!("{}{}{}", self.text, termion::style::Reset, termion::cursor::Goto(1, (row + 1) as u16))
 	}
 }
 
@@ -92,21 +90,6 @@ impl TaskList {
 		}
 	}
 
-	pub fn display(&self) {
-		print!("{}", termion::clear::All);
-		print!("{}", termion::cursor::Hide);
-		print!("{}", termion::cursor::Goto(1, 1));
-
-		if self.todos.len() as i32 == 0 {
-			println!("No todo items.");
-		}
-		for i in 0..self.todos.len() as i32 {
-			self.todos[i as usize].display(i, i == self.selected);
-		}
-
-		show_controls(self.todos.len() as i32);
-	}
-
 	pub fn _add(&mut self, name: String, status: bool) {
 		self.todos.push(Task::new(name, status));
 	}
@@ -114,16 +97,11 @@ impl TaskList {
 	pub fn add<W: std::io::Write>(&mut self, stdout: &mut RawTerminal<W>) {
 		let stdin = stdin();
 		let _ = RawTerminal::suspend_raw_mode(&stdout);
+		println!("\n\n{}{}New task name{}: ", color::Fg(color::Black), color::Bg(color::White), termion::style::Reset);
 
 		let mut new_task = String::new();
-		println!("\n\n{}{}New task name{}: ",
-				 color::Fg(color::Black),
-				 color::Bg(color::White),
-				 termion::style::Reset);
-
 		let _ = stdin.read_line(&mut new_task);
 		let _ = RawTerminal::activate_raw_mode(&stdout);
-
 		self._add(new_task, false);
 	}
 
@@ -161,5 +139,24 @@ impl TaskList {
 												task.text.replace("\n", ""),
 												task.completed as i32));
 		}
+	}
+}
+
+impl Display for TaskList {
+	fn fmt(&self, _f: &mut Formatter<'_>) -> Result {
+		print!("{}", termion::clear::All);
+		print!("{}", termion::cursor::Hide);
+		print!("{}", termion::cursor::Goto(1, 1));
+
+		if self.todos.len() as i32 == 0 {
+			println!("No todo items.");
+		}
+		for i in 0..self.todos.len() as i32 {
+			self.todos[i as usize].display(i, i == self.selected);
+		}
+
+		show_controls(self.todos.len() as i32);
+
+		Ok(())
 	}
 }
