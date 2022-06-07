@@ -1,4 +1,5 @@
 use std::io::{stdin, stdout, Write};
+use std::env;
 
 use termion::event::{Event, Key};
 use termion::input::TermRead;
@@ -7,10 +8,19 @@ use termion::raw::{IntoRawMode};
 mod task;
 
 fn main() {
+	let args: Vec<String> = env::args().collect();
+	let mut todo_list = task::read_file();
+	if args.len() >= 1 {
+		if args.contains(&"d".to_string()) {
+			for i in 0..todo_list.todos.len() as i32 {
+				todo_list.todos[i as usize].display(-1, false);
+			}
+			std::process::exit(0);
+		}
+	}
+
 	let stdin = stdin();
 	let mut stdout = stdout().into_raw_mode().unwrap();
-
-	let mut todo_list = task::read_file();
 	println!("{}", todo_list);
 
 	for c in stdin.events() {

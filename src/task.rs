@@ -67,11 +67,16 @@ impl Task {
 			true => print!("[X] "),
 			false => print!("[ ] ")
 		}
-		match selected {
-			true => print!("{}{}", color::Fg(color::Black), color::Bg(color::White)),
-			false => print!("{}{}", color::Fg(color::White), color::Bg(color::Black))
+		if row == -1 {
+			println!("{}", self.text);
 		}
-		println!("{}{}{}", self.text, termion::style::Reset, termion::cursor::Goto(1, (row + 1) as u16))
+		else {
+			match selected {
+				true => print!("{}{}", color::Fg(color::Black), color::Bg(color::White)),
+				false => print!("{}{}", color::Fg(color::White), color::Bg(color::Black))
+			}
+			println!("{}{}{}", self.text, termion::style::Reset, termion::cursor::Goto(1, (row + 1) as u16))
+		}
 	}
 }
 
@@ -157,7 +162,6 @@ impl Display for TaskList {
 		}
 
 		show_controls(self.todos.len() as i32);
-
 		Ok(())
 	}
 }
