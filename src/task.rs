@@ -58,7 +58,7 @@ impl Task {
 		}
 	}
 
-	pub fn toggle_status(&mut self) {
+	pub fn mark(&mut self) {
 		self.completed = !self.completed;
 	}
 
@@ -95,6 +95,7 @@ impl TaskList {
 	pub fn add<W: std::io::Write>(&mut self, stdout: &mut RawTerminal<W>) {
 		let stdin = stdin();
 		let _ = RawTerminal::suspend_raw_mode(&stdout);
+
 		println!("\n\n{}{}New task name{}: ", color::Fg(color::Black), color::Bg(color::White), termion::style::Reset);
 
 		let mut new_task = String::new();
@@ -130,12 +131,14 @@ impl TaskList {
 		}
 	}
 
+	pub fn mark(&mut self){
+		self.todos[self.selected as usize].mark();
+	}
+
 	pub fn dump(&self){
 		let mut file = File::create("/home/sesank/.tasks").unwrap();
 		for task in &self.todos {
-			let _ = file.write_fmt(format_args!("{},{}\n",
-												task.text.replace("\n", ""),
-												task.completed as i32));
+			let _ = file.write_fmt(format_args!("{},{}\n", task.text.replace("\n", ""), task.completed as i32));
 		}
 	}
 }

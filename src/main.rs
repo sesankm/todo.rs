@@ -19,7 +19,7 @@ fn main() {
 			Event::Key(Key::Char('j')) => todo_list.inc(),
 			Event::Key(Key::Char('k')) => todo_list.dec(),
 			Event::Key(Key::Char('d')) => todo_list.del(),
-			Event::Key(Key::Char('c')) => todo_list.todos[todo_list.selected as usize].toggle_status(),
+			Event::Key(Key::Char('c')) => todo_list.mark(),
 			Event::Key(Key::Char('a')) => todo_list.add(&mut stdout),
 			_ => {}
 		}
