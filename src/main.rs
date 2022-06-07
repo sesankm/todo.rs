@@ -146,8 +146,13 @@ fn show_controls(num_items: i32) {
 	if num_items > 8 {
 		row = num_items + 4;
 	}
-	println!("{}{} <q> quit \t <a> add item \t <c> mark/unmark task as complete {}",
+
+	println!("{}{} <a> add task \t <c> mark/unmark \t <q> quit {}",
 			 termion::cursor::Goto(1, row as u16),
+			 color::Fg(color::Yellow),
+			 termion::style::Reset);
+	println!("{}{} <q> quit \t <d> delete task \t <j>/<k> navigate {} ",
+			 termion::cursor::Goto(1, (row + 1) as u16),
 			 color::Fg(color::Yellow),
 			 termion::style::Reset);
 }
