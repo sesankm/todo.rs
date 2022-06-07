@@ -11,7 +11,7 @@ fn main() {
 	let args: Vec<String> = env::args().collect();
 	let mut todo_list = task::read_file();
 	if args.len() > 1 {
-		if args.contains(&"d".to_string()) {
+		if args.contains(&"d".to_string()) || args.contains(&"-d".to_string()) {
 			for i in 0..todo_list.todos.len() as i32 {
 				todo_list.todos[i as usize].display(-1, false);
 			}
