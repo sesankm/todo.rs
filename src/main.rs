@@ -15,8 +15,8 @@ fn main() {
 			for i in 0..todo_list.todos.len() as i32 {
 				todo_list.todos[i as usize].display(-1, false);
 			}
-			std::process::exit(0);
 		}
+		std::process::exit(0);
 	}
 
 	let stdin = stdin();
